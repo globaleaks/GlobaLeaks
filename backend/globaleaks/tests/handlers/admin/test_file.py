@@ -26,6 +26,12 @@ class TestFileCollection(helpers.TestHandler):
 
     @inlineCallbacks
     def test_get(self):
+        self._handler = file.FileCollection
+        handler = self.request(role='admin')
+        response = yield handler.get()
+
+        self.assertEqual(len(response), 0)
+
         self._handler = file.FileInstance
         handler = self.request({}, role='admin')
         yield handler.post(u'custom')
@@ -35,16 +41,3 @@ class TestFileCollection(helpers.TestHandler):
         response = yield handler.get()
 
         self.assertEqual(len(response), 1)
-
-        self._handler = file.FileInstance
-        handler = self.request({}, role='admin')
-        yield handler.post(u'custom')
-
-        handler = self.request({}, role='admin')
-        yield handler.post(u'custom')
-
-        self._handler = file.FileCollection
-        handler = self.request(role='admin')
-        response = yield handler.get()
-
-        self.assertEqual(len(response), 3)
