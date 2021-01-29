@@ -28,7 +28,6 @@ https_url_regexp = r'^https://([0-9a-z\-]+)\.(.*)$'
 https_url_regexp_or_empty = r'^https://([0-9a-z\-]+)\.(.*)$|^$'
 tip_operation_regexp = r'^(postpone|set)$'
 short_text_regexp = r'^.{1,255}$'
-domain_list_regexp = r'^((([a-z0-9\.]+,)*[a-z0-9\.]+)|)$'
 languages_list_regexp = r'^([a-zA-Z-]+)?(,\s*[a-zA-Z-]+)*$'
 
 token_regexp = r'([a-z0-9]{64})'
@@ -228,6 +227,7 @@ AdminNodeDesc = {
     'can_delete_submission': bool,
     'allow_indexing': bool,
     'disable_privacy_badge': bool,
+    'frame_ancestors': str,
     'enable_receipt_hint': bool,
     'enable_ricochet_panel': bool,
     'ricochet_address': str,
@@ -451,6 +451,7 @@ NodeDesc = {
     'can_delete_submission': bool,
     'allow_indexing': bool,
     'disable_privacy_badge': bool,
+    'frame_ancestors': str,
     'enable_receipt_hint': bool,
     'multisite_login': bool,
     'simplified_login': bool,
